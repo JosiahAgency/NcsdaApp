@@ -1,0 +1,110 @@
+{
+  "@@locale": "en",
+  "appName": "Nairobi Central",
+  "navHome": "Home",
+  "navProgram": "Programme",
+  "navGive": "Give",
+  "navMore": "More",
+  "thisSabbath": "This Sabbath",
+  "sabbathBegins": "Sabbath begins",
+  "orderOfService": "Order of service",
+  "weeklyBulletin": "Weekly bulletin",
+  "giveTitle": "Give",
+  "giveIntro": "Enter an amount next to what you would like to give.",
+  "continueLabel": "Continue",
+  "totalLabel": "Total",
+  "payWith": "Pay with",
+  "mpesa": "M-Pesa",
+  "airtel": "Airtel Money",
+  "phoneLabel": "Phone number",
+  "phoneHelp": "The number that will receive the payment prompt",
+  "phoneInvalid": "Please check the phone number",
+  "payButton": "Pay {amount}",
+  "@payButton": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "webCheckoutButton": "Continue to secure checkout",
+  "back": "Back",
+  "payStep": "Payment {current} of {total}",
+  "@payStep": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "payInstruction": "Check your phone and enter your PIN.",
+  "statusWaiting": "Waiting",
+  "statusPaid": "Paid",
+  "statusSkipped": "Skipped",
+  "payFailed": "That payment did not go through.",
+  "tryAgain": "Try again",
+  "skipThis": "Skip this one",
+  "thankYou": "Thank you",
+  "thankYouBody": "Your giving has been received. A confirmation SMS will arrive on your phone.",
+  "done": "Done",
+  "loadFailed": "Could not load. Please try again.",
+  "language": "Language",
+  "homeHappySabbath": "Happy Sabbath",
+  "homeSabbathMessage": "Sabbath message",
+  "homeSabbathBeginsAt": "Sabbath begins Friday at {time}",
+  "@homeSabbathBeginsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "homeSabbathEndsAt": "Sabbath ends at {time}",
+  "@homeSabbathEndsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "homeDaysToSabbath": "{count, plural, =1{day to Sabbath} other{days to Sabbath}}",
+  "@homeDaysToSabbath": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeHoursToSabbath": "{count, plural, =1{hour to Sabbath} other{hours to Sabbath}}",
+  "@homeHoursToSabbath": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeMinutesToSabbath": "{count, plural, =1{minute to Sabbath} other{minutes to Sabbath}}",
+  "@homeMinutesToSabbath": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeComingUp": "Coming up",
+  "homeToday": "Today",
+  "homeNow": "Now",
+  "homeRead": "Read",
+  "homeBulletinPages": "{pages, plural, =1{1 page} other{{pages} pages}}",
+  "@homeBulletinPages": {
+    "placeholders": {
+      "pages": {
+        "type": "int"
+      }
+    }
+  },
+  "homeGiveSubtitle": "Tithes & offerings"
+}

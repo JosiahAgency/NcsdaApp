@@ -1,0 +1,110 @@
+{
+  "@@locale": "sw",
+  "appName": "Nairobi Central",
+  "navHome": "Nyumbani",
+  "navProgram": "Ratiba",
+  "navGive": "Toa",
+  "navMore": "Zaidi",
+  "thisSabbath": "Sabato hii",
+  "sabbathBegins": "Sabato huanza",
+  "orderOfService": "Ratiba ya ibada",
+  "weeklyBulletin": "Matangazo ya wiki",
+  "giveTitle": "Toa",
+  "giveIntro": "Andika kiasi karibu na kile ungependa kutoa.",
+  "continueLabel": "Endelea",
+  "totalLabel": "Jumla",
+  "payWith": "Lipa kwa",
+  "mpesa": "M-Pesa",
+  "airtel": "Airtel Money",
+  "phoneLabel": "Namba ya simu",
+  "phoneHelp": "Namba itakayopokea ombi la malipo",
+  "phoneInvalid": "Tafadhali hakikisha namba ya simu",
+  "payButton": "Lipa {amount}",
+  "@payButton": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "webCheckoutButton": "Endelea kwenye malipo salama",
+  "back": "Rudi",
+  "payStep": "Malipo {current} kati ya {total}",
+  "@payStep": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "payInstruction": "Angalia simu yako na uweke PIN yako.",
+  "statusWaiting": "Inasubiri",
+  "statusPaid": "Imelipwa",
+  "statusSkipped": "Imerukwa",
+  "payFailed": "Malipo hayo hayakukamilika.",
+  "tryAgain": "Jaribu tena",
+  "skipThis": "Ruka hii",
+  "thankYou": "Asante",
+  "thankYouBody": "Utoaji wako umepokelewa. Utapata ujumbe wa uthibitisho kwenye simu yako.",
+  "done": "Imekamilika",
+  "loadFailed": "Imeshindwa kupakia. Tafadhali jaribu tena.",
+  "language": "Lugha",
+  "homeHappySabbath": "Sabato njema",
+  "homeSabbathMessage": "Ujumbe wa Sabato",
+  "homeSabbathBeginsAt": "Sabato huanza Ijumaa saa {time}",
+  "@homeSabbathBeginsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "homeSabbathEndsAt": "Sabato inaisha saa {time}",
+  "@homeSabbathEndsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "homeDaysToSabbath": "{count, plural, other{siku hadi Sabato}}",
+  "@homeDaysToSabbath": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeHoursToSabbath": "{count, plural, other{saa hadi Sabato}}",
+  "@homeHoursToSabbath": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeMinutesToSabbath": "{count, plural, other{dakika hadi Sabato}}",
+  "@homeMinutesToSabbath": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeComingUp": "Yanayokuja",
+  "homeToday": "Leo",
+  "homeNow": "Sasa",
+  "homeRead": "Soma",
+  "homeBulletinPages": "{pages, plural, =1{ukurasa 1} other{kurasa {pages}}}",
+  "@homeBulletinPages": {
+    "placeholders": {
+      "pages": {
+        "type": "int"
+      }
+    }
+  },
+  "homeGiveSubtitle": "Zaka na sadaka"
+}
