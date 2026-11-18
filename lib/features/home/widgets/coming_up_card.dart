@@ -3,14 +3,17 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../core/theme/surfaces.dart';
-import '../../../core/theme/typography.dart';
+import '../../../core/widgets/ink_surface.dart';
+import '../../../core/widgets/time_row.dart';
 import '../../../l10n/app_localizations.dart';
-import '../home_providers.dart';
+import '../../program/program_provider.dart';
 
+/// The next few programmes: time with weekday, title, place.
 class ComingUpCard extends StatelessWidget {
-  const ComingUpCard({super.key, required this.state});
+  const ComingUpCard({super.key, required this.items, required this.onItemTap});
 
-  final HomeState state;
+  final List<ProgramEvent> items;
+  final ValueChanged<ProgramEvent> onItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +22,9 @@ class ComingUpCard extends StatelessWidget {
     final locale = Localizations.localeOf(context).toString();
     final hm = DateFormat.Hm(locale);
     final weekday = DateFormat.E(locale);
-    final today = DateTime(state.now.year, state.now.month, state.now.day);
+    final muted = AppColors.ink.withValues(alpha: 0.65);
 
-    bool isToday(DateTime d) => DateTime(d.year, d.month, d.day) == today;
-
-    final items = state.upcoming;
-
-    return Container(
-      width: double.infinity,
+    return InkSurface(
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 6),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -36,82 +34,30 @@ class ComingUpCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            state.phase == SabbathPhase.sabbath ? t.homeToday : t.homeComingUp,
-            style: tt.titleLarge,
-          ),
-          const SizedBox(height: 6),
+          Text(t.homeComingUp, style: tt.titleLarge),
+          const SizedBox(height: 4),
           for (var i = 0; i < items.length; i++) ...[
             if (i > 0) const Divider(height: 1, color: AppColors.line),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 14),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 74,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(hm.format(items[i].start), style: serif(20, color: AppPaper.ink)),
-                        Text(
-                          isToday(items[i].start) ? t.homeToday : weekday.format(items[i].start),
-                          style: tt.bodyMedium?.copyWith(
-                            color: AppColors.ink.withValues(alpha: 0.6),
-                          ),
-                        ),
-                      ],
-                    ),
+            InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () => onItemTap(items[i]),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                child: TimeRow(
+                  time: hm.format(items[i].start),
+                  caption: weekday.format(items[i].start),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(items[i].title, style: tt.titleMedium),
+                      Text(items[i].place, style: tt.bodyMedium?.copyWith(color: muted)),
+                    ],
                   ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          spacing: 8,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            Text(items[i].title, style: tt.titleMedium),
-                            if (items[i].isLiveAt(state.now)) const _LiveBadge(),
-                          ],
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          items[i].place,
-                          style: tt.bodyMedium?.copyWith(
-                            color: AppColors.ink.withValues(alpha: 0.65),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ],
         ],
-      ),
-    );
-  }
-}
-
-class _LiveBadge extends StatelessWidget {
-  const _LiveBadge();
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context)!;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(color: AppColors.gold, borderRadius: BorderRadius.circular(8)),
-      child: Text(
-        t.homeNow.toUpperCase(),
-        style: const TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.8,
-          color: AppColors.navy,
-        ),
       ),
     );
   }

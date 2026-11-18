@@ -190,4 +190,52 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get homeGiveSubtitle => 'Zaka na sadaka';
+
+  @override
+  String get progWeek => 'Wiki';
+
+  @override
+  String get progMonth => 'Mwezi';
+
+  @override
+  String get progAllMinistries => 'Idara zote';
+
+  @override
+  String get progChooseMinistry => 'Chagua idara';
+
+  @override
+  String get progNothingWeek => 'Hakuna ratiba wiki hii.';
+
+  @override
+  String get progNothingDay => 'Hakuna ratiba siku hii.';
+
+  @override
+  String get progSabbath => 'Sabato';
+
+  @override
+  String get progPrevious => 'Iliyotangulia';
+
+  @override
+  String get progNext => 'Inayofuata';
+
+  @override
+  String homeLastSabbathOn(String date) {
+    return 'Sabato iliyopita, $date';
+  }
+
+  @override
+  String homeThisSabbathOn(String date) {
+    return 'Sabato hii, $date';
+  }
+
+  @override
+  String homeNextSabbathOn(String date) {
+    return 'Sabato ijayo, $date';
+  }
+
+  @override
+  String get homeProgrammeOutWednesday => 'Ratiba itatoka Jumatano';
+
+  @override
+  String get homeProgrammeIsOut => 'Ratiba imetoka';
 }

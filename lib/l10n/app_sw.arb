@@ -106,5 +106,40 @@
       }
     }
   },
-  "homeGiveSubtitle": "Zaka na sadaka"
+  "homeGiveSubtitle": "Zaka na sadaka",
+  "progWeek": "Wiki",
+  "progMonth": "Mwezi",
+  "progAllMinistries": "Idara zote",
+  "progChooseMinistry": "Chagua idara",
+  "progNothingWeek": "Hakuna ratiba wiki hii.",
+  "progNothingDay": "Hakuna ratiba siku hii.",
+  "progSabbath": "Sabato",
+  "progPrevious": "Iliyotangulia",
+  "progNext": "Inayofuata",
+  "homeLastSabbathOn": "Sabato iliyopita, {date}",
+  "@homeLastSabbathOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeThisSabbathOn": "Sabato hii, {date}",
+  "@homeThisSabbathOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeNextSabbathOn": "Sabato ijayo, {date}",
+  "@homeNextSabbathOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeProgrammeOutWednesday": "Ratiba itatoka Jumatano",
+  "homeProgrammeIsOut": "Ratiba imetoka"
 }

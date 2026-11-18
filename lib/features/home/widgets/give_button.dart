@@ -49,7 +49,7 @@ class GiveButton extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: serif(26, color: AppColors.navy, height: 1.1)),
+                  Text(title, style: heading(26, color: AppColors.navy, height: 1.1)),
                   const SizedBox(height: 2),
                   Text(
                     subtitle,

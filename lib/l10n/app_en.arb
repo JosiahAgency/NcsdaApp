@@ -106,5 +106,40 @@
       }
     }
   },
-  "homeGiveSubtitle": "Tithes & offerings"
+  "homeGiveSubtitle": "Tithes & offerings",
+  "progWeek": "Week",
+  "progMonth": "Month",
+  "progAllMinistries": "All ministries",
+  "progChooseMinistry": "Choose a ministry",
+  "progNothingWeek": "Nothing is scheduled this week.",
+  "progNothingDay": "Nothing is scheduled on this day.",
+  "progSabbath": "Sabbath",
+  "progPrevious": "Previous",
+  "progNext": "Next",
+  "homeLastSabbathOn": "Last Sabbath, {date}",
+  "@homeLastSabbathOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeThisSabbathOn": "This Sabbath, {date}",
+  "@homeThisSabbathOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeNextSabbathOn": "Next Sabbath, {date}",
+  "@homeNextSabbathOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeProgrammeOutWednesday": "Programme out Wednesday",
+  "homeProgrammeIsOut": "Programme is out"
 }

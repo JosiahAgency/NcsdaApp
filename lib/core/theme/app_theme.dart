@@ -1,5 +1,6 @@
-import 'package:google_fonts/google_fonts.dart';
 import 'package:material_ui/material_ui.dart';
+
+import 'typography.dart';
 
 /// Eyeballed from the web screenshots - replace with the real tokens from the web CSS.
 class AppColors {
@@ -14,17 +15,19 @@ class AppColors {
 }
 
 ThemeData buildTheme() {
-  final base = GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme)
-      .apply(bodyColor: AppColors.ink, displayColor: AppColors.ink);
+  final base = ThemeData.light().textTheme.apply(
+    fontFamily: kFontFamily,
+    bodyColor: AppColors.ink,
+    displayColor: AppColors.ink,
+  );
 
-  // Larger than Material defaults: readable for 80-year-olds, still fine for 10-year-olds.
   final text = base.copyWith(
-    headlineMedium: base.headlineMedium?.copyWith(fontSize: 30, fontWeight: FontWeight.w700),
-    titleLarge: base.titleLarge?.copyWith(fontSize: 22, fontWeight: FontWeight.w700),
-    titleMedium: base.titleMedium?.copyWith(fontSize: 18, fontWeight: FontWeight.w600),
-    bodyLarge: base.bodyLarge?.copyWith(fontSize: 18, height: 1.4),
-    bodyMedium: base.bodyMedium?.copyWith(fontSize: 16, height: 1.4),
-    labelLarge: base.labelLarge?.copyWith(fontSize: 18, fontWeight: FontWeight.w700),
+    headlineMedium: base.headlineMedium?.copyWith(fontSize: 28, fontWeight: FontWeight.w800),
+    titleLarge: base.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w800),
+    titleMedium: base.titleMedium?.copyWith(fontSize: 16, fontWeight: FontWeight.w700),
+    bodyLarge: base.bodyLarge?.copyWith(fontSize: 16, height: 1.4),
+    bodyMedium: base.bodyMedium?.copyWith(fontSize: 14, height: 1.4),
+    labelLarge: base.labelLarge?.copyWith(fontSize: 16, fontWeight: FontWeight.w800),
   );
 
   const scheme = ColorScheme.light(
@@ -43,6 +46,7 @@ ThemeData buildTheme() {
 
   return ThemeData(
     useMaterial3: true,
+    fontFamily: kFontFamily,
     colorScheme: scheme,
     scaffoldBackgroundColor: AppColors.canvas,
     textTheme: text,
@@ -84,7 +88,7 @@ ThemeData buildTheme() {
       labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
       // never icon-only
       labelTextStyle: const WidgetStatePropertyAll(
-        TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+        TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
       ),
     ),
   );

@@ -194,4 +194,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeGiveSubtitle => 'Tithes & offerings';
+
+  @override
+  String get progWeek => 'Week';
+
+  @override
+  String get progMonth => 'Month';
+
+  @override
+  String get progAllMinistries => 'All ministries';
+
+  @override
+  String get progChooseMinistry => 'Choose a ministry';
+
+  @override
+  String get progNothingWeek => 'Nothing is scheduled this week.';
+
+  @override
+  String get progNothingDay => 'Nothing is scheduled on this day.';
+
+  @override
+  String get progSabbath => 'Sabbath';
+
+  @override
+  String get progPrevious => 'Previous';
+
+  @override
+  String get progNext => 'Next';
+
+  @override
+  String homeLastSabbathOn(String date) {
+    return 'Last Sabbath, $date';
+  }
+
+  @override
+  String homeThisSabbathOn(String date) {
+    return 'This Sabbath, $date';
+  }
+
+  @override
+  String homeNextSabbathOn(String date) {
+    return 'Next Sabbath, $date';
+  }
+
+  @override
+  String get homeProgrammeOutWednesday => 'Programme out Wednesday';
+
+  @override
+  String get homeProgrammeIsOut => 'Programme is out';
 }

@@ -385,6 +385,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tithes & offerings'**
   String get homeGiveSubtitle;
+
+  /// No description provided for @progWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Week'**
+  String get progWeek;
+
+  /// No description provided for @progMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get progMonth;
+
+  /// No description provided for @progAllMinistries.
+  ///
+  /// In en, this message translates to:
+  /// **'All ministries'**
+  String get progAllMinistries;
+
+  /// No description provided for @progChooseMinistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a ministry'**
+  String get progChooseMinistry;
+
+  /// No description provided for @progNothingWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is scheduled this week.'**
+  String get progNothingWeek;
+
+  /// No description provided for @progNothingDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is scheduled on this day.'**
+  String get progNothingDay;
+
+  /// No description provided for @progSabbath.
+  ///
+  /// In en, this message translates to:
+  /// **'Sabbath'**
+  String get progSabbath;
+
+  /// No description provided for @progPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get progPrevious;
+
+  /// No description provided for @progNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get progNext;
+
+  /// No description provided for @homeLastSabbathOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Sabbath, {date}'**
+  String homeLastSabbathOn(String date);
+
+  /// No description provided for @homeThisSabbathOn.
+  ///
+  /// In en, this message translates to:
+  /// **'This Sabbath, {date}'**
+  String homeThisSabbathOn(String date);
+
+  /// No description provided for @homeNextSabbathOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Sabbath, {date}'**
+  String homeNextSabbathOn(String date);
+
+  /// No description provided for @homeProgrammeOutWednesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Programme out Wednesday'**
+  String get homeProgrammeOutWednesday;
+
+  /// No description provided for @homeProgrammeIsOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Programme is out'**
+  String get homeProgrammeIsOut;
 }
 
 class _AppLocalizationsDelegate
