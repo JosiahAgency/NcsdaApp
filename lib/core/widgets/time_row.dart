@@ -5,6 +5,7 @@ import 'package:material_ui/material_ui.dart';
 import '../theme/app_theme.dart';
 import '../theme/surfaces.dart';
 import '../theme/typography.dart';
+import 'text_scale.dart';
 
 /// A time (with a small caption under it) beside some content. The time column
 /// grows with the phone's font size, and with a very large font size the time
@@ -57,14 +58,4 @@ class TimeRow extends StatelessWidget {
       ],
     );
   }
-}
-
-/// Helper to get the current text scale factor using modern Flutter APIs
-double textScaleOf(BuildContext context) {
-  return MediaQuery.textScalerOf(context).scale(1.0);
-}
-
-/// Helper to check if the user has a large text accessibility setting enabled
-bool isLargeText(BuildContext context) {
-  return textScaleOf(context) > 1.2;
 }

@@ -25,9 +25,6 @@ class AppLocalizationsSw extends AppLocalizations {
   String get navMore => 'Zaidi';
 
   @override
-  String get thisSabbath => 'Sabato hii';
-
-  @override
   String get sabbathBegins => 'Sabato huanza';
 
   @override
@@ -37,25 +34,10 @@ class AppLocalizationsSw extends AppLocalizations {
   String get weeklyBulletin => 'Matangazo ya wiki';
 
   @override
-  String get giveTitle => 'Toa';
-
-  @override
-  String get giveIntro => 'Andika kiasi karibu na kile ungependa kutoa.';
-
-  @override
   String get continueLabel => 'Endelea';
 
   @override
   String get totalLabel => 'Jumla';
-
-  @override
-  String get payWith => 'Lipa kwa';
-
-  @override
-  String get mpesa => 'M-Pesa';
-
-  @override
-  String get airtel => 'Airtel Money';
 
   @override
   String get phoneLabel => 'Namba ya simu';
@@ -120,76 +102,34 @@ class AppLocalizationsSw extends AppLocalizations {
   String get language => 'Lugha';
 
   @override
-  String get homeHappySabbath => 'Sabato njema';
-
-  @override
-  String get homeSabbathMessage => 'Ujumbe wa Sabato';
-
-  @override
-  String homeSabbathBeginsAt(String time) {
-    return 'Sabato huanza Ijumaa saa $time';
-  }
-
-  @override
-  String homeSabbathEndsAt(String time) {
-    return 'Sabato inaisha saa $time';
-  }
-
-  @override
-  String homeDaysToSabbath(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'siku hadi Sabato',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String homeHoursToSabbath(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'saa hadi Sabato',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String homeMinutesToSabbath(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'dakika hadi Sabato',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get homeComingUp => 'Yanayokuja';
 
   @override
   String get homeToday => 'Leo';
 
   @override
-  String get homeNow => 'Sasa';
+  String get homeGiveSubtitle => 'M-Pesa, Airtel Money na benki';
 
   @override
-  String get homeRead => 'Soma';
-
-  @override
-  String homeBulletinPages(int pages) {
-    String _temp0 = intl.Intl.pluralLogic(
-      pages,
-      locale: localeName,
-      other: 'kurasa $pages',
-      one: 'ukurasa 1',
-    );
-    return '$_temp0';
+  String homeLastSabbathOn(String date) {
+    return 'Sabato iliyopita, $date';
   }
 
   @override
-  String get homeGiveSubtitle => 'Zaka na sadaka';
+  String homeThisSabbathOn(String date) {
+    return 'Sabato hii, $date';
+  }
+
+  @override
+  String homeNextSabbathOn(String date) {
+    return 'Sabato ijayo, $date';
+  }
+
+  @override
+  String get homeProgrammeOutWednesday => 'Ratiba itatoka Jumatano';
+
+  @override
+  String get homeProgrammeIsOut => 'Ratiba imetoka';
 
   @override
   String get progWeek => 'Wiki';
@@ -219,23 +159,84 @@ class AppLocalizationsSw extends AppLocalizations {
   String get progNext => 'Inayofuata';
 
   @override
-  String homeLastSabbathOn(String date) {
-    return 'Sabato iliyopita, $date';
+  String get giveTitle => 'Toa';
+
+  @override
+  String get giveHowIntro => 'Ungependa kutoa kwa njia gani?';
+
+  @override
+  String get giveTagInApp => 'Lipa ndani ya programu hii';
+
+  @override
+  String get giveTagCheckout => 'Hufungua malipo salama';
+
+  @override
+  String get giveTagDetails => 'Maelezo ya akaunti';
+
+  @override
+  String givePaybillValue(String number) {
+    return 'Paybill $number';
   }
 
   @override
-  String homeThisSabbathOn(String date) {
-    return 'Sabato hii, $date';
+  String giveAccountValue(String number) {
+    return 'Akaunti $number';
   }
 
   @override
-  String homeNextSabbathOn(String date) {
-    return 'Sabato ijayo, $date';
+  String get giveReceiptNote =>
+      'Risiti yako ni ujumbe wa SMS kutoka M-Pesa au Airtel. Programu hii haihifadhi rekodi ya utoaji wako.';
+
+  @override
+  String giveBy(String method) {
+    return 'Toa kwa $method';
   }
 
   @override
-  String get homeProgrammeOutWednesday => 'Ratiba itatoka Jumatano';
+  String get givePaybill => 'Namba ya Paybill';
 
   @override
-  String get homeProgrammeIsOut => 'Ratiba imetoka';
+  String giveAccountLabel(String account) {
+    return 'Akaunti: $account';
+  }
+
+  @override
+  String get giveAmountsIntro =>
+      'Andika kiasi karibu na kila sababu unayotaka kutoa.';
+
+  @override
+  String get giveCheckTitle => 'Hakiki na ulipe';
+
+  @override
+  String get giveSequentialNote =>
+      'Utapokea ombi moja kwa kila sababu, moja baada ya jingine. Weka PIN yako kila mara.';
+
+  @override
+  String get giveBankTitle => 'Toa kwa benki';
+
+  @override
+  String get giveBankName => 'Benki';
+
+  @override
+  String get giveBankAccount => 'Namba ya akaunti';
+
+  @override
+  String get giveBankReasonTitle => 'Sababu ya kutoa';
+
+  @override
+  String get giveBankReasonHelp =>
+      'Chagua sababu na uiandike kama kumbukumbu ya malipo.';
+
+  @override
+  String get giveBankReference => 'Kumbukumbu yako ya malipo';
+
+  @override
+  String get giveBankNote =>
+      'Utoaji kwa benki hufanywa kupitia benki yako, si ndani ya programu hii.';
+
+  @override
+  String get giveCopy => 'Nakili';
+
+  @override
+  String get giveCopied => 'Imenakiliwa';
 }

@@ -5,17 +5,11 @@
   "navProgram": "Ratiba",
   "navGive": "Toa",
   "navMore": "Zaidi",
-  "thisSabbath": "Sabato hii",
   "sabbathBegins": "Sabato huanza",
   "orderOfService": "Ratiba ya ibada",
   "weeklyBulletin": "Matangazo ya wiki",
-  "giveTitle": "Toa",
-  "giveIntro": "Andika kiasi karibu na kile ungependa kutoa.",
   "continueLabel": "Endelea",
   "totalLabel": "Jumla",
-  "payWith": "Lipa kwa",
-  "mpesa": "M-Pesa",
-  "airtel": "Airtel Money",
   "phoneLabel": "Namba ya simu",
   "phoneHelp": "Namba itakayopokea ombi la malipo",
   "phoneInvalid": "Tafadhali hakikisha namba ya simu",
@@ -52,70 +46,9 @@
   "done": "Imekamilika",
   "loadFailed": "Imeshindwa kupakia. Tafadhali jaribu tena.",
   "language": "Lugha",
-  "homeHappySabbath": "Sabato njema",
-  "homeSabbathMessage": "Ujumbe wa Sabato",
-  "homeSabbathBeginsAt": "Sabato huanza Ijumaa saa {time}",
-  "@homeSabbathBeginsAt": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "homeSabbathEndsAt": "Sabato inaisha saa {time}",
-  "@homeSabbathEndsAt": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "homeDaysToSabbath": "{count, plural, other{siku hadi Sabato}}",
-  "@homeDaysToSabbath": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "homeHoursToSabbath": "{count, plural, other{saa hadi Sabato}}",
-  "@homeHoursToSabbath": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "homeMinutesToSabbath": "{count, plural, other{dakika hadi Sabato}}",
-  "@homeMinutesToSabbath": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "homeComingUp": "Yanayokuja",
   "homeToday": "Leo",
-  "homeNow": "Sasa",
-  "homeRead": "Soma",
-  "homeBulletinPages": "{pages, plural, =1{ukurasa 1} other{kurasa {pages}}}",
-  "@homeBulletinPages": {
-    "placeholders": {
-      "pages": {
-        "type": "int"
-      }
-    }
-  },
-  "homeGiveSubtitle": "Zaka na sadaka",
-  "progWeek": "Wiki",
-  "progMonth": "Mwezi",
-  "progAllMinistries": "Idara zote",
-  "progChooseMinistry": "Chagua idara",
-  "progNothingWeek": "Hakuna ratiba wiki hii.",
-  "progNothingDay": "Hakuna ratiba siku hii.",
-  "progSabbath": "Sabato",
-  "progPrevious": "Iliyotangulia",
-  "progNext": "Inayofuata",
+  "homeGiveSubtitle": "M-Pesa, Airtel Money na benki",
   "homeLastSabbathOn": "Sabato iliyopita, {date}",
   "@homeLastSabbathOn": {
     "placeholders": {
@@ -141,5 +74,65 @@
     }
   },
   "homeProgrammeOutWednesday": "Ratiba itatoka Jumatano",
-  "homeProgrammeIsOut": "Ratiba imetoka"
+  "homeProgrammeIsOut": "Ratiba imetoka",
+  "progWeek": "Wiki",
+  "progMonth": "Mwezi",
+  "progAllMinistries": "Idara zote",
+  "progChooseMinistry": "Chagua idara",
+  "progNothingWeek": "Hakuna ratiba wiki hii.",
+  "progNothingDay": "Hakuna ratiba siku hii.",
+  "progSabbath": "Sabato",
+  "progPrevious": "Iliyotangulia",
+  "progNext": "Inayofuata",
+  "giveTitle": "Toa",
+  "giveHowIntro": "Ungependa kutoa kwa njia gani?",
+  "giveTagInApp": "Lipa ndani ya programu hii",
+  "giveTagCheckout": "Hufungua malipo salama",
+  "giveTagDetails": "Maelezo ya akaunti",
+  "givePaybillValue": "Paybill {number}",
+  "@givePaybillValue": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "giveAccountValue": "Akaunti {number}",
+  "@giveAccountValue": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "giveReceiptNote": "Risiti yako ni ujumbe wa SMS kutoka M-Pesa au Airtel. Programu hii haihifadhi rekodi ya utoaji wako.",
+  "giveBy": "Toa kwa {method}",
+  "@giveBy": {
+    "placeholders": {
+      "method": {
+        "type": "String"
+      }
+    }
+  },
+  "givePaybill": "Namba ya Paybill",
+  "giveAccountLabel": "Akaunti: {account}",
+  "@giveAccountLabel": {
+    "placeholders": {
+      "account": {
+        "type": "String"
+      }
+    }
+  },
+  "giveAmountsIntro": "Andika kiasi karibu na kila sababu unayotaka kutoa.",
+  "giveCheckTitle": "Hakiki na ulipe",
+  "giveSequentialNote": "Utapokea ombi moja kwa kila sababu, moja baada ya jingine. Weka PIN yako kila mara.",
+  "giveBankTitle": "Toa kwa benki",
+  "giveBankName": "Benki",
+  "giveBankAccount": "Namba ya akaunti",
+  "giveBankReasonTitle": "Sababu ya kutoa",
+  "giveBankReasonHelp": "Chagua sababu na uiandike kama kumbukumbu ya malipo.",
+  "giveBankReference": "Kumbukumbu yako ya malipo",
+  "giveBankNote": "Utoaji kwa benki hufanywa kupitia benki yako, si ndani ya programu hii.",
+  "giveCopy": "Nakili",
+  "giveCopied": "Imenakiliwa"
 }

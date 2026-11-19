@@ -29,11 +29,13 @@ class HomePage extends ConsumerWidget {
               Image.asset(
                 'assets/images/round/adventist-symbol-circle--black.png',
                 height: 40,
-                errorBuilder: (_, _, _) =>
+                errorBuilder: (_, __, ___) =>
                     const Icon(Icons.church_outlined, size: 40, color: AppColors.navy),
               ),
               const SizedBox(width: 12),
-              Text(t.appName, style: heading(22, color: AppColors.ink)),
+              Expanded(
+                child: Text(t.appName, style: heading(22, color: AppColors.ink)),
+              ),
             ],
           ),
           const SizedBox(height: 18),

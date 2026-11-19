@@ -198,7 +198,7 @@ class SabbathCard extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(t.orderOfService),
+                              Flexible(child: Text(t.orderOfService)),
                               const SizedBox(width: 8),
                               const Icon(Icons.arrow_forward_rounded, size: 22),
                             ],
@@ -219,7 +219,7 @@ class SabbathCard extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(t.weeklyBulletin),
+                              Flexible(child: Text(t.weeklyBulletin)),
                               const SizedBox(width: 8),
                               const Icon(Icons.arrow_forward_rounded, size: 22),
                             ],

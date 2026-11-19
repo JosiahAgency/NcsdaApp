@@ -128,12 +128,6 @@ abstract class AppLocalizations {
   /// **'More'**
   String get navMore;
 
-  /// No description provided for @thisSabbath.
-  ///
-  /// In en, this message translates to:
-  /// **'This Sabbath'**
-  String get thisSabbath;
-
   /// No description provided for @sabbathBegins.
   ///
   /// In en, this message translates to:
@@ -152,18 +146,6 @@ abstract class AppLocalizations {
   /// **'Weekly bulletin'**
   String get weeklyBulletin;
 
-  /// No description provided for @giveTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Give'**
-  String get giveTitle;
-
-  /// No description provided for @giveIntro.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter an amount next to what you would like to give.'**
-  String get giveIntro;
-
   /// No description provided for @continueLabel.
   ///
   /// In en, this message translates to:
@@ -175,24 +157,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Total'**
   String get totalLabel;
-
-  /// No description provided for @payWith.
-  ///
-  /// In en, this message translates to:
-  /// **'Pay with'**
-  String get payWith;
-
-  /// No description provided for @mpesa.
-  ///
-  /// In en, this message translates to:
-  /// **'M-Pesa'**
-  String get mpesa;
-
-  /// No description provided for @airtel.
-  ///
-  /// In en, this message translates to:
-  /// **'Airtel Money'**
-  String get airtel;
 
   /// No description provided for @phoneLabel.
   ///
@@ -308,48 +272,6 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
-  /// No description provided for @homeHappySabbath.
-  ///
-  /// In en, this message translates to:
-  /// **'Happy Sabbath'**
-  String get homeHappySabbath;
-
-  /// No description provided for @homeSabbathMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Sabbath message'**
-  String get homeSabbathMessage;
-
-  /// No description provided for @homeSabbathBeginsAt.
-  ///
-  /// In en, this message translates to:
-  /// **'Sabbath begins Friday at {time}'**
-  String homeSabbathBeginsAt(String time);
-
-  /// No description provided for @homeSabbathEndsAt.
-  ///
-  /// In en, this message translates to:
-  /// **'Sabbath ends at {time}'**
-  String homeSabbathEndsAt(String time);
-
-  /// No description provided for @homeDaysToSabbath.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1{day to Sabbath} other{days to Sabbath}}'**
-  String homeDaysToSabbath(int count);
-
-  /// No description provided for @homeHoursToSabbath.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1{hour to Sabbath} other{hours to Sabbath}}'**
-  String homeHoursToSabbath(int count);
-
-  /// No description provided for @homeMinutesToSabbath.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1{minute to Sabbath} other{minutes to Sabbath}}'**
-  String homeMinutesToSabbath(int count);
-
   /// No description provided for @homeComingUp.
   ///
   /// In en, this message translates to:
@@ -362,29 +284,41 @@ abstract class AppLocalizations {
   /// **'Today'**
   String get homeToday;
 
-  /// No description provided for @homeNow.
-  ///
-  /// In en, this message translates to:
-  /// **'Now'**
-  String get homeNow;
-
-  /// No description provided for @homeRead.
-  ///
-  /// In en, this message translates to:
-  /// **'Read'**
-  String get homeRead;
-
-  /// No description provided for @homeBulletinPages.
-  ///
-  /// In en, this message translates to:
-  /// **'{pages, plural, =1{1 page} other{{pages} pages}}'**
-  String homeBulletinPages(int pages);
-
   /// No description provided for @homeGiveSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Tithes & offerings'**
+  /// **'M-Pesa, Airtel Money and bank'**
   String get homeGiveSubtitle;
+
+  /// No description provided for @homeLastSabbathOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Sabbath, {date}'**
+  String homeLastSabbathOn(String date);
+
+  /// No description provided for @homeThisSabbathOn.
+  ///
+  /// In en, this message translates to:
+  /// **'This Sabbath, {date}'**
+  String homeThisSabbathOn(String date);
+
+  /// No description provided for @homeNextSabbathOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Sabbath, {date}'**
+  String homeNextSabbathOn(String date);
+
+  /// No description provided for @homeProgrammeOutWednesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Programme out Wednesday'**
+  String get homeProgrammeOutWednesday;
+
+  /// No description provided for @homeProgrammeIsOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Programme is out'**
+  String get homeProgrammeIsOut;
 
   /// No description provided for @progWeek.
   ///
@@ -440,35 +374,143 @@ abstract class AppLocalizations {
   /// **'Next'**
   String get progNext;
 
-  /// No description provided for @homeLastSabbathOn.
+  /// No description provided for @giveTitle.
   ///
   /// In en, this message translates to:
-  /// **'Last Sabbath, {date}'**
-  String homeLastSabbathOn(String date);
+  /// **'Give'**
+  String get giveTitle;
 
-  /// No description provided for @homeThisSabbathOn.
+  /// No description provided for @giveHowIntro.
   ///
   /// In en, this message translates to:
-  /// **'This Sabbath, {date}'**
-  String homeThisSabbathOn(String date);
+  /// **'How would you like to give?'**
+  String get giveHowIntro;
 
-  /// No description provided for @homeNextSabbathOn.
+  /// No description provided for @giveTagInApp.
   ///
   /// In en, this message translates to:
-  /// **'Next Sabbath, {date}'**
-  String homeNextSabbathOn(String date);
+  /// **'Pay in this app'**
+  String get giveTagInApp;
 
-  /// No description provided for @homeProgrammeOutWednesday.
+  /// No description provided for @giveTagCheckout.
   ///
   /// In en, this message translates to:
-  /// **'Programme out Wednesday'**
-  String get homeProgrammeOutWednesday;
+  /// **'Opens secure checkout'**
+  String get giveTagCheckout;
 
-  /// No description provided for @homeProgrammeIsOut.
+  /// No description provided for @giveTagDetails.
   ///
   /// In en, this message translates to:
-  /// **'Programme is out'**
-  String get homeProgrammeIsOut;
+  /// **'Account details'**
+  String get giveTagDetails;
+
+  /// No description provided for @givePaybillValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Paybill {number}'**
+  String givePaybillValue(String number);
+
+  /// No description provided for @giveAccountValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Account {number}'**
+  String giveAccountValue(String number);
+
+  /// No description provided for @giveReceiptNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your receipt is the SMS you get from M-Pesa or Airtel. This app does not keep a record of your giving.'**
+  String get giveReceiptNote;
+
+  /// No description provided for @giveBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Give by {method}'**
+  String giveBy(String method);
+
+  /// No description provided for @givePaybill.
+  ///
+  /// In en, this message translates to:
+  /// **'Paybill number'**
+  String get givePaybill;
+
+  /// No description provided for @giveAccountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Account: {account}'**
+  String giveAccountLabel(String account);
+
+  /// No description provided for @giveAmountsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an amount next to each reason you would like to give for.'**
+  String get giveAmountsIntro;
+
+  /// No description provided for @giveCheckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check and pay'**
+  String get giveCheckTitle;
+
+  /// No description provided for @giveSequentialNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You will get one prompt for each reason, one after the other. Enter your PIN each time.'**
+  String get giveSequentialNote;
+
+  /// No description provided for @giveBankTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Give by bank'**
+  String get giveBankTitle;
+
+  /// No description provided for @giveBankName.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get giveBankName;
+
+  /// No description provided for @giveBankAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Account number'**
+  String get giveBankAccount;
+
+  /// No description provided for @giveBankReasonTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason for giving'**
+  String get giveBankReasonTitle;
+
+  /// No description provided for @giveBankReasonHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a reason and write it as your payment reference.'**
+  String get giveBankReasonHelp;
+
+  /// No description provided for @giveBankReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Your payment reference'**
+  String get giveBankReference;
+
+  /// No description provided for @giveBankNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank giving is done from your bank, not inside this app.'**
+  String get giveBankNote;
+
+  /// No description provided for @giveCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get giveCopy;
+
+  /// No description provided for @giveCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get giveCopied;
 }
 
 class _AppLocalizationsDelegate

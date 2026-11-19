@@ -5,19 +5,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/give_models.dart';
 
 abstract class GivingRepository {
-  /// Active giving funds, controlled from the admin portal.
+  /// Active reasons for giving. Controlled from the admin portal, so the
+  /// list can change without an app update (proposal 2.3).
   Future<List<GiveCategory>> categories();
 
-  /// Sends ONE STK prompt and resolves when the member paid, cancelled or it timed out.
+  /// Sends ONE prompt (M-Pesa or Airtel) and resolves when the member paid,
+  /// cancelled, or it timed out (proposal 3.2: guided sequential checkout).
   Future<PaymentOutcome> requestPayment({
-    required PaymentMethod method,
+    required GiveMethod method,
     required String phone,
     required String accountRef,
     required int amount,
   });
 
-  /// iOS: hand the cart off to the secure web checkout.
-  Uri webCheckoutUri({required List<GiveLine> lines, required PaymentMethod method});
+  /// iOS: hand the selection over to the secure web checkout (proposal 4.1).
+  Uri webCheckoutUri({required List<GiveLine> lines, required GiveMethod method});
 }
 
 /// Replace with an ApiGivingRepository that talks to the Laravel API.
@@ -25,39 +27,41 @@ class FakeGivingRepository implements GivingRepository {
   @override
   Future<List<GiveCategory>> categories() async {
     await Future<void>.delayed(const Duration(milliseconds: 400));
+    // Account references are placeholders: confirm the exact text with the
+    // treasurer. Each one must be 12 characters or fewer.
     return const [
       GiveCategory(id: 'tithe', nameEn: 'Tithe', nameSw: 'Zaka', accountRef: 'TITHE'),
       GiveCategory(
-        id: 'offering',
-        nameEn: 'Combined Offering',
-        nameSw: 'Sadaka ya Pamoja',
-        accountRef: 'OFFERING',
+        id: 'local_budget',
+        nameEn: 'Local church budget',
+        nameSw: 'Bajeti ya kanisa la mtaa',
+        accountRef: 'LOCALBUDGET',
       ),
       GiveCategory(
-        id: 'sabbath_school',
-        nameEn: 'Sabbath School',
-        nameSw: 'Shule ya Sabato',
-        accountRef: 'SABBATHSCH',
+        id: 'evangelism',
+        nameEn: 'Evangelism',
+        nameSw: 'Uinjilisti',
+        accountRef: 'EVANGELISM',
       ),
+      GiveCategory(id: 'accs', nameEn: 'ACCS', nameSw: 'ACCS', accountRef: 'ACCS'),
       GiveCategory(
-        id: 'development',
-        nameEn: 'Church Development',
-        nameSw: 'Maendeleo ya Kanisa',
-        accountRef: 'DEV',
-      ),
-      GiveCategory(id: 'youth', nameEn: 'Youth (AY)', nameSw: 'Vijana (AY)', accountRef: 'YOUTH'),
-      GiveCategory(
-        id: 'camp',
+        id: 'camp_meeting',
         nameEn: 'Camp Meeting',
         nameSw: 'Kambi ya Mkutano',
-        accountRef: 'CAMP',
+        accountRef: 'CAMPMEETING',
+      ),
+      GiveCategory(
+        id: 'thanksgiving',
+        nameEn: 'Thanksgiving',
+        nameSw: 'Shukrani',
+        accountRef: 'THANKSGIVING',
       ),
     ];
   }
 
   @override
   Future<PaymentOutcome> requestPayment({
-    required PaymentMethod method,
+    required GiveMethod method,
     required String phone,
     required String accountRef,
     required int amount,
@@ -67,7 +71,7 @@ class FakeGivingRepository implements GivingRepository {
   }
 
   @override
-  Uri webCheckoutUri({required List<GiveLine> lines, required PaymentMethod method}) {
+  Uri webCheckoutUri({required List<GiveLine> lines, required GiveMethod method}) {
     return Uri.https('connect.example.or.ke', '/give', {
       'items': lines.map((l) => '${l.category.accountRef}:${l.amount}').join(','),
       'method': method.name,
@@ -77,5 +81,5 @@ class FakeGivingRepository implements GivingRepository {
 
 final givingRepositoryProvider = Provider<GivingRepository>((ref) => FakeGivingRepository());
 
-/// Overridable in tests.
+/// iOS uses the web checkout (proposal 4.1). Overridable in tests.
 final useWebCheckoutProvider = Provider<bool>((ref) => Platform.isIOS);

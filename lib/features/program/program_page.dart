@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/theme/typography.dart';
+import '../../core/widgets/text_scale.dart';
 import '../../l10n/app_localizations.dart';
 import 'program_provider.dart';
 import 'widgets/event_sheet.dart';
@@ -40,32 +41,11 @@ class ProgramPage extends ConsumerWidget {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SegmentedButton<ProgramView>(
-                    showSelectedIcon: false,
-                    style: SegmentedButton.styleFrom(minimumSize: const Size(0, 48)),
-                    segments: [
-                      ButtonSegment(value: ProgramView.week, label: Text(t.progWeek)),
-                      ButtonSegment(value: ProgramView.month, label: Text(t.progMonth)),
-                    ],
-                    selected: {s.view},
-                    onSelectionChanged: (v) => vm.setView(v.first),
-                  ),
-                ),
-                if (!s.isCurrentPeriod) ...[
-                  const SizedBox(width: 8),
-                  FilledButton.tonal(
-                    style: FilledButton.styleFrom(
-                      minimumSize: const Size(0, 48),
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
-                    ),
-                    onPressed: vm.goToday,
-                    child: Text(t.homeToday),
-                  ),
-                ],
-              ],
+            child: _ViewSwitch(
+              view: s.view,
+              showToday: !s.isCurrentPeriod,
+              onView: vm.setView,
+              onToday: vm.goToday,
             ),
           ),
           Padding(
@@ -136,4 +116,70 @@ String _weekLabel(List<DateTime> days, String locale) {
   }
   final f = DateFormat('d MMM', locale);
   return '${f.format(s)} – ${f.format(e)} ${e.year}';
+}
+
+/// Week | Month switch with the Today button. With a very large phone font size
+/// the Today button drops below the switch instead of squeezing it.
+class _ViewSwitch extends StatelessWidget {
+  const _ViewSwitch({
+    required this.view,
+    required this.showToday,
+    required this.onView,
+    required this.onToday,
+  });
+
+  final ProgramView view;
+  final bool showToday;
+  final ValueChanged<ProgramView> onView;
+  final VoidCallback onToday;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
+    final segmented = SizedBox(
+      width: double.infinity,
+      child: CappedTextScale(
+        max: 1.3,
+        child: SegmentedButton<ProgramView>(
+          showSelectedIcon: false,
+          style: SegmentedButton.styleFrom(minimumSize: const Size(0, 48)),
+          segments: [
+            ButtonSegment(value: ProgramView.week, label: Text(t.progWeek)),
+            ButtonSegment(value: ProgramView.month, label: Text(t.progMonth)),
+          ],
+          selected: {view},
+          onSelectionChanged: (v) => onView(v.first),
+        ),
+      ),
+    );
+
+    if (!showToday) return segmented;
+
+    final today = FilledButton.tonal(
+      style: FilledButton.styleFrom(
+        minimumSize: const Size(0, 48),
+        padding: const EdgeInsets.symmetric(horizontal: 18),
+      ),
+      onPressed: onToday,
+      child: Text(t.homeToday),
+    );
+
+    if (isLargeText(context)) {
+      return Column(
+        children: [
+          segmented,
+          const SizedBox(height: 8),
+          SizedBox(width: double.infinity, child: today),
+        ],
+      );
+    }
+    return Row(
+      children: [
+        Expanded(child: segmented),
+        const SizedBox(width: 8),
+        today,
+      ],
+    );
+  }
 }

@@ -1,22 +1,64 @@
-enum PaymentMethod { mpesa, airtel }
+/// The three ways to give. M-Pesa and Airtel Money are paid inside the app;
+/// bank giving only shows the account details.
+enum GiveMethod { mpesa, airtel, bank }
+
+extension GiveMethodX on GiveMethod {
+  bool get paysInApp => this != GiveMethod.bank;
+}
 
 enum LineStatus { waiting, prompting, paid, failed, skipped }
 
 enum PaymentOutcome { paid, cancelled, timedOut, failed }
 
+/// Where the money goes for one way of giving. Fixed by the church treasury.
+class GivingChannel {
+  const GivingChannel({
+    required this.method,
+    required this.name,
+    required this.number,
+    this.bankName,
+  });
+
+  final GiveMethod method;
+
+  /// Brand name shown on the card, e.g. "M-Pesa".
+  final String name;
+
+  /// Paybill number (M-Pesa, Airtel) or bank account number.
+  final String number;
+  final String? bankName;
+}
+
+// Proposal 2.1: payments go to the church's existing Paybill number(s).
+// Later these can come from the API; they rarely change.
+const kGivingChannels = <GiveMethod, GivingChannel>{
+  GiveMethod.mpesa: GivingChannel(method: GiveMethod.mpesa, name: 'M-Pesa', number: '320100'),
+  GiveMethod.airtel: GivingChannel(
+    method: GiveMethod.airtel,
+    name: 'Airtel Money',
+    number: 'SDA01',
+  ),
+  GiveMethod.bank: GivingChannel(
+    method: GiveMethod.bank,
+    name: 'Stanbic Bank',
+    number: '0102024184600',
+    bankName: 'Stanbic Bank',
+  ),
+};
+
+/// A reason for giving. [accountRef] is the Paybill "Account" the money is
+/// labelled with, and the reference to write on a bank transfer.
 class GiveCategory {
   const GiveCategory({
     required this.id,
     required this.nameEn,
     required this.nameSw,
     required this.accountRef,
-  });
+  }) : assert(accountRef.length <= 12, 'Safaricom limits the account reference to 12 characters');
 
   final String id;
   final String nameEn;
   final String nameSw;
-
-  /// Paybill account reference. Safaricom allows at most 12 characters.
   final String accountRef;
 
   String name(String languageCode) => languageCode == 'sw' ? nameSw : nameEn;

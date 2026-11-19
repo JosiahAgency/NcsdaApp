@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 import '../theme/app_theme.dart';
+import '../theme/surfaces.dart';
 
 class SoftCard extends StatelessWidget {
   const SoftCard({super.key, required this.child, this.padding = const EdgeInsets.all(16)});
@@ -16,6 +17,7 @@ class SoftCard extends StatelessWidget {
       color: Colors.white,
       borderRadius: BorderRadius.circular(20),
       border: Border.all(color: AppColors.line),
+      boxShadow: depth(1),
     ),
     child: child,
   );

@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data/giving_repository.dart';
 import '../domain/give_models.dart';
 
-enum GiveStage { choose, details, paying, done }
+enum GiveStage { method, amounts, details, paying, done, bank }
 
 class GiveState {
   const GiveState({
@@ -12,22 +12,32 @@ class GiveState {
     this.loading = true,
     this.loadFailed = false,
     this.amounts = const {},
-    this.method = PaymentMethod.mpesa,
+    this.method,
     this.phone = '',
-    this.stage = GiveStage.choose,
+    this.stage = GiveStage.method,
     this.statuses = const {},
     this.lastOutcome,
+    this.bankReasonId,
   });
 
   final List<GiveCategory> categories;
   final bool loading;
   final bool loadFailed;
   final Map<String, int> amounts;
-  final PaymentMethod method;
+  final GiveMethod? method;
   final String phone;
   final GiveStage stage;
   final Map<String, LineStatus> statuses;
   final PaymentOutcome? lastOutcome;
+  final String? bankReasonId;
+
+  GivingChannel? get channel => method == null ? null : kGivingChannels[method];
+
+  /// The reason picked on the bank screen (first one until the member chooses).
+  GiveCategory? get bankReason {
+    if (categories.isEmpty) return null;
+    return categories.firstWhere((c) => c.id == bankReasonId, orElse: () => categories.first);
+  }
 
   List<GiveLine> get lines => [
     for (final c in categories)
@@ -52,11 +62,12 @@ class GiveState {
     bool? loading,
     bool? loadFailed,
     Map<String, int>? amounts,
-    PaymentMethod? method,
+    GiveMethod? method,
     String? phone,
     GiveStage? stage,
     Map<String, LineStatus>? statuses,
     PaymentOutcome? lastOutcome,
+    String? bankReasonId,
     bool clearOutcome = false,
   }) => GiveState(
     categories: categories ?? this.categories,
@@ -68,6 +79,7 @@ class GiveState {
     stage: stage ?? this.stage,
     statuses: statuses ?? this.statuses,
     lastOutcome: clearOutcome ? null : (lastOutcome ?? this.lastOutcome),
+    bankReasonId: bankReasonId ?? this.bankReasonId,
   );
 }
 
@@ -102,7 +114,18 @@ class GiveViewModel extends Notifier<GiveState> {
     _load();
   }
 
-  // --- choose ---
+  // --- method ---
+  void chooseMethod(GiveMethod method) => state = state.copyWith(
+    method: method,
+    stage: method.paysInApp ? GiveStage.amounts : GiveStage.bank,
+  );
+
+  void backToMethods() => state = state.copyWith(stage: GiveStage.method);
+
+  // --- bank ---
+  void selectBankReason(String id) => state = state.copyWith(bankReasonId: id);
+
+  // --- amounts ---
   void setAmount(String categoryId, String raw) {
     final digits = raw.replaceAll(RegExp(r'\D'), '');
     final value = digits.isEmpty
@@ -116,20 +139,24 @@ class GiveViewModel extends Notifier<GiveState> {
   }
 
   // --- details ---
-  void setMethod(PaymentMethod method) => state = state.copyWith(method: method);
-
   void setPhone(String phone) => state = state.copyWith(phone: phone);
 
-  void backToChoose() => state = state.copyWith(stage: GiveStage.choose);
+  void backToAmounts() => state = state.copyWith(stage: GiveStage.amounts);
 
-  bool get canPay => state.total > 0 && (_useWebCheckout || state.normalizedPhone != null);
+  bool get canPay {
+    final m = state.method;
+    return m != null &&
+        m.paysInApp &&
+        state.total > 0 &&
+        (_useWebCheckout || state.normalizedPhone != null);
+  }
 
   Future<void> pay() async {
     if (!canPay) return;
     final s = state;
     if (_useWebCheckout) {
       await launchUrl(
-        _repo.webCheckoutUri(lines: s.lines, method: s.method),
+        _repo.webCheckoutUri(lines: s.lines, method: s.method!),
         mode: LaunchMode.externalApplication,
       );
       return;
@@ -142,7 +169,7 @@ class GiveViewModel extends Notifier<GiveState> {
     await _runQueue();
   }
 
-  // --- paying: one prompt at a time, so every fund lands under its own account reference ---
+  // --- paying: one prompt at a time, so every reason lands under its own account ---
   Future<void> _runQueue() async {
     if (_running) return;
     _running = true;
@@ -156,7 +183,7 @@ class GiveViewModel extends Notifier<GiveState> {
         PaymentOutcome outcome;
         try {
           outcome = await _repo.requestPayment(
-            method: state.method,
+            method: state.method!,
             phone: state.normalizedPhone!,
             accountRef: line.category.accountRef,
             amount: line.amount,
@@ -174,7 +201,7 @@ class GiveViewModel extends Notifier<GiveState> {
         }
       }
       final anyPaid = state.statuses.values.contains(LineStatus.paid);
-      state = state.copyWith(stage: anyPaid ? GiveStage.done : GiveStage.choose);
+      state = state.copyWith(stage: anyPaid ? GiveStage.done : GiveStage.amounts);
     } finally {
       _running = false;
     }
@@ -196,8 +223,9 @@ class GiveViewModel extends Notifier<GiveState> {
     _runQueue();
   }
 
+  /// Back to the start. Nothing about the gift is kept (proposal 2.1: no history).
   void reset() => state = state.copyWith(
-    stage: GiveStage.choose,
+    stage: GiveStage.method,
     amounts: const {},
     statuses: const {},
     clearOutcome: true,

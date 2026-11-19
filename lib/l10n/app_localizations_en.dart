@@ -25,9 +25,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navMore => 'More';
 
   @override
-  String get thisSabbath => 'This Sabbath';
-
-  @override
   String get sabbathBegins => 'Sabbath begins';
 
   @override
@@ -37,26 +34,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get weeklyBulletin => 'Weekly bulletin';
 
   @override
-  String get giveTitle => 'Give';
-
-  @override
-  String get giveIntro =>
-      'Enter an amount next to what you would like to give.';
-
-  @override
   String get continueLabel => 'Continue';
 
   @override
   String get totalLabel => 'Total';
-
-  @override
-  String get payWith => 'Pay with';
-
-  @override
-  String get mpesa => 'M-Pesa';
-
-  @override
-  String get airtel => 'Airtel Money';
 
   @override
   String get phoneLabel => 'Phone number';
@@ -121,79 +102,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
-  String get homeHappySabbath => 'Happy Sabbath';
-
-  @override
-  String get homeSabbathMessage => 'Sabbath message';
-
-  @override
-  String homeSabbathBeginsAt(String time) {
-    return 'Sabbath begins Friday at $time';
-  }
-
-  @override
-  String homeSabbathEndsAt(String time) {
-    return 'Sabbath ends at $time';
-  }
-
-  @override
-  String homeDaysToSabbath(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'days to Sabbath',
-      one: 'day to Sabbath',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String homeHoursToSabbath(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'hours to Sabbath',
-      one: 'hour to Sabbath',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String homeMinutesToSabbath(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'minutes to Sabbath',
-      one: 'minute to Sabbath',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get homeComingUp => 'Coming up';
 
   @override
   String get homeToday => 'Today';
 
   @override
-  String get homeNow => 'Now';
+  String get homeGiveSubtitle => 'M-Pesa, Airtel Money and bank';
 
   @override
-  String get homeRead => 'Read';
-
-  @override
-  String homeBulletinPages(int pages) {
-    String _temp0 = intl.Intl.pluralLogic(
-      pages,
-      locale: localeName,
-      other: '$pages pages',
-      one: '1 page',
-    );
-    return '$_temp0';
+  String homeLastSabbathOn(String date) {
+    return 'Last Sabbath, $date';
   }
 
   @override
-  String get homeGiveSubtitle => 'Tithes & offerings';
+  String homeThisSabbathOn(String date) {
+    return 'This Sabbath, $date';
+  }
+
+  @override
+  String homeNextSabbathOn(String date) {
+    return 'Next Sabbath, $date';
+  }
+
+  @override
+  String get homeProgrammeOutWednesday => 'Programme out Wednesday';
+
+  @override
+  String get homeProgrammeIsOut => 'Programme is out';
 
   @override
   String get progWeek => 'Week';
@@ -223,23 +159,84 @@ class AppLocalizationsEn extends AppLocalizations {
   String get progNext => 'Next';
 
   @override
-  String homeLastSabbathOn(String date) {
-    return 'Last Sabbath, $date';
+  String get giveTitle => 'Give';
+
+  @override
+  String get giveHowIntro => 'How would you like to give?';
+
+  @override
+  String get giveTagInApp => 'Pay in this app';
+
+  @override
+  String get giveTagCheckout => 'Opens secure checkout';
+
+  @override
+  String get giveTagDetails => 'Account details';
+
+  @override
+  String givePaybillValue(String number) {
+    return 'Paybill $number';
   }
 
   @override
-  String homeThisSabbathOn(String date) {
-    return 'This Sabbath, $date';
+  String giveAccountValue(String number) {
+    return 'Account $number';
   }
 
   @override
-  String homeNextSabbathOn(String date) {
-    return 'Next Sabbath, $date';
+  String get giveReceiptNote =>
+      'Your receipt is the SMS you get from M-Pesa or Airtel. This app does not keep a record of your giving.';
+
+  @override
+  String giveBy(String method) {
+    return 'Give by $method';
   }
 
   @override
-  String get homeProgrammeOutWednesday => 'Programme out Wednesday';
+  String get givePaybill => 'Paybill number';
 
   @override
-  String get homeProgrammeIsOut => 'Programme is out';
+  String giveAccountLabel(String account) {
+    return 'Account: $account';
+  }
+
+  @override
+  String get giveAmountsIntro =>
+      'Enter an amount next to each reason you would like to give for.';
+
+  @override
+  String get giveCheckTitle => 'Check and pay';
+
+  @override
+  String get giveSequentialNote =>
+      'You will get one prompt for each reason, one after the other. Enter your PIN each time.';
+
+  @override
+  String get giveBankTitle => 'Give by bank';
+
+  @override
+  String get giveBankName => 'Bank';
+
+  @override
+  String get giveBankAccount => 'Account number';
+
+  @override
+  String get giveBankReasonTitle => 'Reason for giving';
+
+  @override
+  String get giveBankReasonHelp =>
+      'Choose a reason and write it as your payment reference.';
+
+  @override
+  String get giveBankReference => 'Your payment reference';
+
+  @override
+  String get giveBankNote =>
+      'Bank giving is done from your bank, not inside this app.';
+
+  @override
+  String get giveCopy => 'Copy';
+
+  @override
+  String get giveCopied => 'Copied';
 }

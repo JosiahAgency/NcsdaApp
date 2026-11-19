@@ -5,17 +5,11 @@
   "navProgram": "Programme",
   "navGive": "Give",
   "navMore": "More",
-  "thisSabbath": "This Sabbath",
   "sabbathBegins": "Sabbath begins",
   "orderOfService": "Order of service",
   "weeklyBulletin": "Weekly bulletin",
-  "giveTitle": "Give",
-  "giveIntro": "Enter an amount next to what you would like to give.",
   "continueLabel": "Continue",
   "totalLabel": "Total",
-  "payWith": "Pay with",
-  "mpesa": "M-Pesa",
-  "airtel": "Airtel Money",
   "phoneLabel": "Phone number",
   "phoneHelp": "The number that will receive the payment prompt",
   "phoneInvalid": "Please check the phone number",
@@ -52,70 +46,9 @@
   "done": "Done",
   "loadFailed": "Could not load. Please try again.",
   "language": "Language",
-  "homeHappySabbath": "Happy Sabbath",
-  "homeSabbathMessage": "Sabbath message",
-  "homeSabbathBeginsAt": "Sabbath begins Friday at {time}",
-  "@homeSabbathBeginsAt": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "homeSabbathEndsAt": "Sabbath ends at {time}",
-  "@homeSabbathEndsAt": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
-  "homeDaysToSabbath": "{count, plural, =1{day to Sabbath} other{days to Sabbath}}",
-  "@homeDaysToSabbath": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "homeHoursToSabbath": "{count, plural, =1{hour to Sabbath} other{hours to Sabbath}}",
-  "@homeHoursToSabbath": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "homeMinutesToSabbath": "{count, plural, =1{minute to Sabbath} other{minutes to Sabbath}}",
-  "@homeMinutesToSabbath": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "homeComingUp": "Coming up",
   "homeToday": "Today",
-  "homeNow": "Now",
-  "homeRead": "Read",
-  "homeBulletinPages": "{pages, plural, =1{1 page} other{{pages} pages}}",
-  "@homeBulletinPages": {
-    "placeholders": {
-      "pages": {
-        "type": "int"
-      }
-    }
-  },
-  "homeGiveSubtitle": "Tithes & offerings",
-  "progWeek": "Week",
-  "progMonth": "Month",
-  "progAllMinistries": "All ministries",
-  "progChooseMinistry": "Choose a ministry",
-  "progNothingWeek": "Nothing is scheduled this week.",
-  "progNothingDay": "Nothing is scheduled on this day.",
-  "progSabbath": "Sabbath",
-  "progPrevious": "Previous",
-  "progNext": "Next",
+  "homeGiveSubtitle": "M-Pesa, Airtel Money and bank",
   "homeLastSabbathOn": "Last Sabbath, {date}",
   "@homeLastSabbathOn": {
     "placeholders": {
@@ -141,5 +74,65 @@
     }
   },
   "homeProgrammeOutWednesday": "Programme out Wednesday",
-  "homeProgrammeIsOut": "Programme is out"
+  "homeProgrammeIsOut": "Programme is out",
+  "progWeek": "Week",
+  "progMonth": "Month",
+  "progAllMinistries": "All ministries",
+  "progChooseMinistry": "Choose a ministry",
+  "progNothingWeek": "Nothing is scheduled this week.",
+  "progNothingDay": "Nothing is scheduled on this day.",
+  "progSabbath": "Sabbath",
+  "progPrevious": "Previous",
+  "progNext": "Next",
+  "giveTitle": "Give",
+  "giveHowIntro": "How would you like to give?",
+  "giveTagInApp": "Pay in this app",
+  "giveTagCheckout": "Opens secure checkout",
+  "giveTagDetails": "Account details",
+  "givePaybillValue": "Paybill {number}",
+  "@givePaybillValue": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "giveAccountValue": "Account {number}",
+  "@giveAccountValue": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "giveReceiptNote": "Your receipt is the SMS you get from M-Pesa or Airtel. This app does not keep a record of your giving.",
+  "giveBy": "Give by {method}",
+  "@giveBy": {
+    "placeholders": {
+      "method": {
+        "type": "String"
+      }
+    }
+  },
+  "givePaybill": "Paybill number",
+  "giveAccountLabel": "Account: {account}",
+  "@giveAccountLabel": {
+    "placeholders": {
+      "account": {
+        "type": "String"
+      }
+    }
+  },
+  "giveAmountsIntro": "Enter an amount next to each reason you would like to give for.",
+  "giveCheckTitle": "Check and pay",
+  "giveSequentialNote": "You will get one prompt for each reason, one after the other. Enter your PIN each time.",
+  "giveBankTitle": "Give by bank",
+  "giveBankName": "Bank",
+  "giveBankAccount": "Account number",
+  "giveBankReasonTitle": "Reason for giving",
+  "giveBankReasonHelp": "Choose a reason and write it as your payment reference.",
+  "giveBankReference": "Your payment reference",
+  "giveBankNote": "Bank giving is done from your bank, not inside this app.",
+  "giveCopy": "Copy",
+  "giveCopied": "Copied"
 }

@@ -1,6 +1,6 @@
 {
-    "name": "ncsda_app",
-    "short_name": "ncsda_app",
+    "name": "Nairobi Central SDA Church",
+    "short_name": "NCSDAC",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
